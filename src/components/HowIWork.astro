@@ -1,0 +1,90 @@
+---
+// HowIWork.astro
+---
+
+<section class="section section--sm how-section">
+  <div class="container">
+    <div class="label" data-i18n="how_label">How I Work</div>
+    <h2 class="section-title mt-3" data-i18n="how_title">A clear, repeatable process</h2>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step__number">01</div>
+        <div class="step__content">
+          <div class="step__title" data-i18n="how_step1_title">Understand the business</div>
+          <div class="step__desc" data-i18n="how_step1_desc">Start with the real problem, not the data</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step__number">02</div>
+        <div class="step__content">
+          <div class="step__title" data-i18n="how_step2_title">Clean and structure</div>
+          <div class="step__desc" data-i18n="how_step2_desc">Make the data reliable before anything else</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step__number">03</div>
+        <div class="step__content">
+          <div class="step__title" data-i18n="how_step3_title">Analyze and model</div>
+          <div class="step__desc" data-i18n="how_step3_desc">Find the patterns that matter</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step__number">04</div>
+        <div class="step__content">
+          <div class="step__title" data-i18n="how_step4_title">Deliver clarity</div>
+          <div class="step__desc" data-i18n="how_step4_desc">Dashboards and insights built for decision-makers</div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<style>
+  .how-section {
+    border-top: 1px solid var(--clr-border);
+  }
+
+  .mt-3 {
+    margin-top: 0.75rem;
+  }
+
+  .steps {
+    margin-top: var(--space-8);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    background: var(--clr-bg-2);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--clr-border);
+  }
+
+  .step__number {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--clr-accent);
+    line-height: 1;
+    opacity: 0.25;
+    letter-spacing: -0.03em;
+  }
+
+  .step__title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--clr-text);
+    line-height: 1.3;
+  }
+
+  .step__desc {
+    font-size: var(--text-sm);
+    color: var(--clr-text-muted);
+    line-height: 1.5;
+  }
+</style>

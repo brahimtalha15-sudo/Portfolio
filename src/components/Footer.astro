@@ -1,0 +1,51 @@
+---
+// Footer.astro
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p class="footer__copy" data-i18n="footer_copy">© 2024 Brahim Talha. All rights reserved.</p>
+
+    <div class="footer__controls">
+      <div class="lang-toggle" role="group" aria-label="Language selector">
+        <button data-lang-btn="en" class="active" aria-label="Switch to English">EN</button>
+        <button data-lang-btn="fr" aria-label="Passer en français">FR</button>
+      </div>
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle theme">
+        <span class="theme-icon-footer">☾</span>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--clr-border);
+    padding-block: var(--space-6);
+  }
+
+  .footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    max-width: var(--max-width-wide);
+  }
+
+  .footer__copy {
+    font-size: var(--text-sm);
+    color: var(--clr-text-subtle);
+  }
+
+  .footer__controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .theme-icon-footer {
+    font-size: 14px;
+    line-height: 1;
+  }
+</style>

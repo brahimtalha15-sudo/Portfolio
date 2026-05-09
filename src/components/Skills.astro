@@ -1,0 +1,72 @@
+---
+// Skills.astro
+const skills = [
+  { name: 'Power BI', icon: '📊' },
+  { name: 'Power Query', icon: '🔧' },
+  { name: 'DAX', icon: '∑' },
+  { name: 'SQL', icon: '🗄' },
+  { name: 'PostgreSQL', icon: '🐘' },
+  { name: 'Python', icon: '🐍' },
+  { name: 'Figma', icon: '✏️' },
+];
+---
+
+<section class="section section--sm skills-section">
+  <div class="container">
+    <div class="label" data-i18n="skills_label">Skills</div>
+    <h2 class="section-title mt-3" data-i18n="skills_title">Tools I work with</h2>
+
+    <div class="skills-grid">
+      {skills.map(skill => (
+        <div class="skill-chip">
+          <span class="skill-chip__icon" aria-hidden="true">{skill.icon}</span>
+          <span class="skill-chip__name">{skill.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-section {
+    border-top: 1px solid var(--clr-border);
+  }
+
+  .mt-3 {
+    margin-top: 0.75rem;
+  }
+
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+  }
+
+  .skill-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.55rem 1rem;
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius);
+    transition: border-color var(--transition), box-shadow var(--transition);
+  }
+
+  .skill-chip:hover {
+    border-color: var(--clr-accent);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .skill-chip__icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .skill-chip__name {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--clr-text);
+  }
+</style>

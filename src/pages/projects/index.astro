@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Footer from '../../components/Footer.astro';
+import { projects } from '../../data/projects';
+
+// Sort: featured first, then completed, then in-progress
+const sorted = [...projects].sort((a, b) => {
+  if (a.featured) return -1;
+  if (b.featured) return 1;
+  if (a.status === 'completed' && b.status !== 'completed') return -1;
+  if (b.status === 'completed' && a.status !== 'completed') return 1;
+  return 0;
+});
+
+// Default to EN for initial render (JS will swap on load)
+const lang = 'en';
+---
+
+<Layout
+  title="Projects — Brahim Talha"
+  description="Case studies and projects by Brahim Talha — from retail sales dashboards to database design."
+>
+  <Navbar />
+  <main>
+    <section class="section projects-header">
+      <div class="container">
+        <h1 class="page-title" data-i18n="projects_page_title">Projects</h1>
+        <p class="page-subtitle" data-i18n="projects_page_subtitle">Real problems. Clear solutions. Business impact.</p>
+      </div>
+    </section>
+
+    <section class="section section--sm projects-grid-section">
+      <div class="container container--wide">
+        <div class="projects-grid">
+          {sorted.map(p => (
+            <ProjectCard
+              slug={p.slug}
+              title={p.title[lang]}
+              tagline={p.tagline[lang]}
+              tools={p.tools}
+              status={p.status}
+              featured={p.featured}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Sync project card text with current language
+  import { projects } from '../../data/projects';
+
+  function syncProjectCards() {
+    const lang = (localStorage.getItem('lang') || 'en') as 'en' | 'fr';
+    const cards = document.querySelectorAll<HTMLAnchorElement>('.project-card');
+    cards.forEach(card => {
+      const slug = card.getAttribute('href')?.split('/').pop();
+      const project = projects.find(p => p.slug === slug);
+      if (!project) return;
+      const titleEl = card.querySelector('.project-card__title');
+      const taglineEl = card.querySelector('.project-card__tagline');
+      if (titleEl) titleEl.textContent = project.title[lang];
+      if (taglineEl) taglineEl.textContent = project.tagline[lang];
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    syncProjectCards();
+  });
+</script>
+
+<style>
+  .projects-header {
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--clr-border);
+  }
+
+  .page-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--clr-text);
+    line-height: 1.1;
+  }
+
+  .page-subtitle {
+    font-size: var(--text-lg);
+    color: var(--clr-text-muted);
+    margin-top: var(--space-3);
+  }
+
+  .projects-grid-section {
+    padding-top: var(--space-12);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  @media (max-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

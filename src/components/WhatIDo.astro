@@ -1,0 +1,72 @@
+---
+// WhatIDo.astro
+---
+
+<section class="section section--sm">
+  <div class="container">
+    <div class="label" data-i18n="what_label">What I Do</div>
+    <h2 class="section-title mt-3" data-i18n="what_title">From raw data to business clarity</h2>
+
+    <ul class="what-list">
+      <li class="what-item">
+        <span class="what-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 8 5 12 15 4"/></svg>
+        </span>
+        <span data-i18n="what_1">Understand the business problem before touching the data</span>
+      </li>
+      <li class="what-item">
+        <span class="what-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 8 5 12 15 4"/></svg>
+        </span>
+        <span data-i18n="what_2">Clean and structure messy, inconsistent datasets</span>
+      </li>
+      <li class="what-item">
+        <span class="what-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 8 5 12 15 4"/></svg>
+        </span>
+        <span data-i18n="what_3">Build dashboards that decision-makers actually use</span>
+      </li>
+      <li class="what-item">
+        <span class="what-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 8 5 12 15 4"/></svg>
+        </span>
+        <span data-i18n="what_4">Surface patterns, anomalies, and insights that matter</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .mt-3 {
+    margin-top: 0.75rem;
+  }
+
+  .what-list {
+    margin-top: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .what-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-base);
+    color: var(--clr-text);
+    line-height: 1.5;
+  }
+
+  .what-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--clr-accent-light);
+    border-radius: var(--radius-sm);
+    color: var(--clr-accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+</style>
